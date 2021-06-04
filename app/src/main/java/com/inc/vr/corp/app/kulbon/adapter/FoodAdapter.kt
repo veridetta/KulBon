@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.inc.vr.corp.app.kulbo.FoodInfo
+import com.inc.vr.corp.app.kulbon.DetailActivity
 import com.inc.vr.corp.app.kulbon.MainActivity
 import com.inc.vr.corp.app.kulbon.R
 import kotlinx.android.synthetic.main.rc_cat.view.*
@@ -45,8 +46,8 @@ class FoodHolder(view: View) : RecyclerView.ViewHolder(view) {
             .error(R.drawable.logo)
         Glide.with(context).load(buku.cover).apply(options).into(bg)
         card.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            intent.putExtra("id", buku.id)
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("id", buku.id.toString())
             intent.putExtra("name", buku.name)
             intent.putExtra("cover", buku.cover)
             intent.putExtra("address", buku.address)

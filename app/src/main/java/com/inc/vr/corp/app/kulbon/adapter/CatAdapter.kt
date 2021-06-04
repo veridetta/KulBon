@@ -49,7 +49,7 @@ class CatHolder(view: View) : RecyclerView.ViewHolder(view) {
         Glide.with(context).load(buku.cover).apply(options).into(bg)
         card.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
-            intent.putExtra("id", buku.id)
+            intent.putExtra("id", buku.id.toString())
             intent.putExtra("name", buku.name)
             intent.putExtra("cover", buku.cover)
             context?.startActivity(intent)

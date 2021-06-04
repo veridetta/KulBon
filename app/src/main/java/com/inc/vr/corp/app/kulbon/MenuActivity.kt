@@ -73,7 +73,7 @@ class MenuActivity : AppCompatActivity() {
                         Timber.d(addedUser.toString())
                         val heroesAdapter = CatAdapter(addedUser)
                         rc_home.apply {
-                            layoutManager = GridLayoutManager(this@MenuActivity,2)
+                            layoutManager = GridLayoutManager(this@MenuActivity,1)
                             adapter = heroesAdapter
                         }
                     }

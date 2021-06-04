@@ -24,14 +24,16 @@ class CariActivity : AppCompatActivity() {
         if(BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())
         }
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Cari"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         val ss = getIntent().getStringExtra("name").toString()
         getFood(ss,"name")
         Timber.d("isi "+ss);
         kategori_text.text="Menampilkan hasil cari '"+ss+"'"
-        btn_back.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
     }
     fun getFood(title: String, author: String) {
         val apiService= RestApiService()
@@ -89,5 +91,9 @@ class CariActivity : AppCompatActivity() {
         }
 
          */
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

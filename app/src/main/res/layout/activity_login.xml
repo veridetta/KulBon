@@ -23,7 +23,7 @@
             <ImageView
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_120sdp"
-                android:background="@color/green_400"/>
+                android:background="@drawable/logo"/>
             <TextView
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_width="match_parent"

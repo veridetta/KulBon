@@ -56,7 +56,7 @@
                     <ImageView
                         android:layout_width="@dimen/_27sdp"
                         android:layout_height="@dimen/_27sdp"
-                        android:background="@color/grey_800"/>
+                        android:background="@drawable/location"/>
                     <TextView
                         android:id="@+id/t_address"
                         android:layout_marginLeft="@dimen/_5sdp"
@@ -75,7 +75,7 @@
                     <ImageView
                         android:layout_width="@dimen/_27sdp"
                         android:layout_height="@dimen/_27sdp"
-                        android:background="@color/grey_800"/>
+                        android:background="@drawable/smartphone"/>
                     <TextView
                         android:id="@+id/t_phone"
                         android:layout_marginLeft="@dimen/_5sdp"
@@ -94,7 +94,7 @@
                     <ImageView
                         android:layout_width="@dimen/_27sdp"
                         android:layout_height="@dimen/_27sdp"
-                        android:background="@color/grey_800"/>
+                        android:background="@drawable/price"/>
                     <TextView
                         android:id="@+id/t_price"
                         android:layout_marginLeft="@dimen/_5sdp"
@@ -114,7 +114,7 @@
                     <ImageView
                         android:layout_width="@dimen/_27sdp"
                         android:layout_height="@dimen/_27sdp"
-                        android:background="@color/grey_800"/>
+                        android:background="@drawable/clock"/>
                     <TextView
                         android:id="@+id/t_open"
                         android:layout_marginLeft="@dimen/_5sdp"
@@ -192,20 +192,43 @@
                     android:textStyle="bold"
                     android:textColor="@color/grey_800"
                     android:text="Map"/>
-                <WebView
-                    android:id="@+id/web_map"
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_9sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
-                    tools:ignore="WebViewLayout" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    android:layout_gravity="right"
-                    android:gravity="right"
-                    android:textColor="@color/grey_800"
-                    android:text="NAVIGATE"/>
+                    android:layout_height="@dimen/_160sdp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/bg_map"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/map"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey_800"
+                        android:alpha="0.4"/>
+                    <LinearLayout
+                        android:id="@+id/navigate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_90sdp"
+                            android:background="@drawable/nav"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:text="NAVIGATE"/>
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="@dimen/_9sdp"
@@ -263,7 +286,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_18sdp"
+                    android:textSize="@dimen/_20sdp"
                     android:textStyle="bold"
                     android:textColor="@color/grey_800"
                     android:text="0"/>
@@ -281,8 +304,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_18sdp"
-                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
                     android:textColor="@color/grey_800"
                     android:text="(0)"/>
                 <View
@@ -316,35 +338,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:numStars="5"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
+                    android:clipToPadding="false"
+                    android:visibility="visible"
+                    android:id="@+id/rc_rating"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/_9sdp"
-        android:paddingRight="@dimen/_14sdp"
-        android:gravity="right">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_4sdp"
-            app:cardElevation="@dimen/_2sdp"
-            app:cardBackgroundColor="@color/purple_500"
-            app:cardMaxElevation="@dimen/_4sdp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_9sdp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kembali"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

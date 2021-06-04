@@ -71,7 +71,7 @@
                                         android:layout_gravity="center"
                                         android:gravity="center"
                                         android:layout_height="wrap_content"
-                                        android:background="@color/grey_200"
+                                        android:background="@color/white"
                                         app:hintTextColor="@color/purple_500"
                                         android:textColorHint="@color/purple_500"
                                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
