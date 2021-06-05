@@ -176,7 +176,7 @@ class DetailActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<List<RateListInfo>>, response: Response<List<RateListInfo>>) {
                         val addedUser = response.body()
                         if(addedUser!==null){
-                            Timber.d(addedUser.toString())
+                            Timber.d("tambah "+addedUser.toString())
                             val heroesAdapter = ReviewAdapter(addedUser)
                             rc_rating.apply {
                                 layoutManager = GridLayoutManager(this@DetailActivity,1)

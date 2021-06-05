@@ -14,6 +14,5 @@ data class RateListInfo (
         @SerializedName("rating") var rating : Int,
         @SerializedName("food_id") var foodId : Int,
         @SerializedName("user_id") var userId : Int,
-        @SerializedName("users") var users : List<UserInfo>
-
+        @SerializedName("users") var users : UserInfo,
 )

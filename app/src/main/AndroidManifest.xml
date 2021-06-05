@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KulBon"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ResultActivity" />
         <activity android:name=".ReviewActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".CariActivity" />

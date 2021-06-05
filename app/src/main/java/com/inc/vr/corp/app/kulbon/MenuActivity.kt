@@ -25,6 +25,10 @@ class MenuActivity : AppCompatActivity() {
         if(BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())
         }
+        i_profile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
         val ss = getIntent().getStringExtra("name").toString()
         getCat(ss,"name")
         Timber.d("isi "+ss);

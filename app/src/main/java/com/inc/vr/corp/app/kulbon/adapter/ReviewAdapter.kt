@@ -43,18 +43,17 @@ class ReviewAdapter(private val heroes: List<RateListInfo>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ReviewHolder, position: Int) {
 
-        holder.bindOrder(heroes[position], position)
+        holder.bindOrder(heroes[position])
     }
 }
 class ReviewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val name = view.t_nama
     private val rating = view.rating_rev
     private val comment = view.t_comment
-    @SuppressLint("LogNotTimber")
-    fun bindOrder(buku: RateListInfo, position: Int) {
+    fun bindOrder(buku: RateListInfo) {
 
-        val userinfo : List<UserInfo> = buku.users
-        name.setText(userinfo.get(0).name)
+        val userinfo : UserInfo = buku.users
+        name.setText(userinfo.name)
         rating.rating=buku.rating.toFloat()
         comment.setText(buku.comment)
     }
