@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
+import android.util.Log.d
 import androidx.appcompat.app.AlertDialog
 import com.inc.vr.corp.app.kulbo.RateGlobalInfo
 import com.inc.vr.corp.app.kulbo.RateInfo
@@ -12,6 +14,7 @@ import com.inc.vr.corp.app.kulbon.api.RateGlobalApi
 import com.inc.vr.corp.app.kulbon.api.RestApiService
 import com.inc.vr.corp.app.kulbon.api.ServiceBuilder
 import com.inc.vr.corp.app.kulbon.users.LoginActivity
+import com.intuit.sdp.BuildConfig
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_review.*
 import kotlinx.android.synthetic.main.rc_review.*
@@ -20,11 +23,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
-
+import java.util.Arrays.toString
+import timber.log.Timber.d
 class ReviewActivity : AppCompatActivity() {
+    var klik =0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review)
+        if(BuildConfig.DEBUG){
+            Timber.plant(Timber.DebugTree())
+        }
         val id = getIntent().getStringExtra("id").toString()
         val rating = getIntent().getStringExtra("rating").toString()
         val sharedPreference:SharedPreference=SharedPreference(this)
@@ -37,6 +45,7 @@ class ReviewActivity : AppCompatActivity() {
         actionbar.setDisplayHomeAsUpEnabled(true)
         b_review.setOnClickListener {
             val com = i_comment.text.toString()
+            klik = 1;
             addReview(id.toInt(),rating, com ,user_id)
         }
     }
@@ -64,12 +73,11 @@ class ReviewActivity : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: Call<List<RateInfo>>, response: Response<List<RateInfo>>) {
-                        val addedUser = response.body()
-                        if(addedUser!==null){
+                        if (response.body().toString() !== null) {
                             val intent = Intent(this@ReviewActivity, ResultActivity::class.java)
                             intent.putExtra("status", "benar")
                             startActivity(intent)
-                        }else{
+                        } else {
                             val intent = Intent(this@ReviewActivity, ResultActivity::class.java)
                             intent.putExtra("status", "salah")
                             startActivity(intent)
